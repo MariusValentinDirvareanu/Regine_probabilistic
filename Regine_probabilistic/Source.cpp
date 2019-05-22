@@ -1,15 +1,15 @@
 #include <iostream>
 
 int main() {
-	int n = 8, ok = 1, k, contor = 0, ok1 = 1;
+	int n = 8, ok = 0, k, contor = 0, ok1 = 1;
 	int x[100] = { 0 }, C[100] = { 1 }, NV_SE[100] = { 1 }, NE_SV[100] = { 1 }, d[100] = { 0 };
 	do {
-		x[1] = rand() % n + 1;
+		x[0] = rand() % n + 1;
 		ok = 1;
-		C[x[1]] = 0;
-		NV_SE[n + x[1] - 1] = 0;
-		NE_SV[x[1]] = 0;
-		k = 2;
+		C[x[0]] = 0;
+		NV_SE[n + x[0] - 1] = 0;
+		NE_SV[x[0]] = 0;
+		k = 1;
 		do
 		{
 			x[k] = rand() % n + 1;
@@ -57,11 +57,11 @@ int main() {
 
 				} while (ok1 == 1);
 			}
-		} while (k<=n);
-		for (int i = 0; i < n; ++i) {
-			std::cout << x[i] << ' ';
-		}
-		std::cout << '\n';
+			for (auto element : C) {
+				std::cout << element << ' ';
+			}
+			std::cout << '\n';
+		} while (k<n);
 	} while (ok == 0);
 	return 0;
 }
